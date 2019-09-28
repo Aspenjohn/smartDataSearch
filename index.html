@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title id="title">科斯迈机器参数查询|</title>
+    <link rel="icon" href="//nwzimg.wezhan.cn/sitefiles10113/10113119/logo1.png">
+  </head>
+  <body>
+    <div id="app">
+      
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+<script>
+  
+
+    function start(){
+       
+    setInterval( function () {
+                    //获取第一个字符
+                    var title=document.getElementById('title').innerText;
+                    var start = title.substring(0, 1);
+                    //得到后面的字符
+                    var end = title.substring(1);
+
+                    
+                    //重新赋值
+                    document.getElementById('title').innerText= end + start;
+                    
+                }, 1000)
+              }
+   start();
+
+</script>
