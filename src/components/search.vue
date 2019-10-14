@@ -5,9 +5,7 @@
         
         <button @click="search">查询相关参数</button>
         <!--<input type="text" placeholder="格式eg:三号板" v-model="searchBoard" @keyup.enter="search"/><!-this.$refs.id.innertext-->
-        
-        <button @click="search">查询版号</button>
-        <button onClick="document.location.reload()">重置</button>
+      
     </div>
   </div>
 </template>
@@ -43,11 +41,7 @@ export default {
   justify-content: center;
   align-items:center
 }
-button{
-    background-color: aliceblue;
-    
-    border-radius: 14px;
-}
+
 h2{
     text-align: center
 }

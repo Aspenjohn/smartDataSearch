@@ -1,3 +1,4 @@
+
 'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
@@ -11,11 +12,13 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const express = require('express')
 const app = express()
-const appData = require('../data.json') // 加载本地json文件
 
+const appData = require('../data.json') // 加载本地json文件
+const goData = require('../go.json')
 //const code=appData;//获取对应本地code
 var apiRoutes=express.Router()
 app.use('/api',apiRoutes)
+
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -56,11 +59,20 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       res.json({
       
       code:appData
+    
+     
       }) // 接口返回json数据，上面配置的数据code就复制给data请求后调用
       
+      }),
+      app.get('/api/go',(reg,res) => {
+        res.json({
+          goData
+        })
       })
+
     }
   },
+  
   
   plugins: [
     new webpack.DefinePlugin({

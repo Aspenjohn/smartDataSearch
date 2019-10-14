@@ -1,8 +1,9 @@
 <template>
     <div id="content">
+        
         <h2 v-if="firstView">输入上下发id和命令号搜索</h2>
         <h2 v-if="loading">LOADING...</h2>
-        <h2 v-if="errorMsg" :key="i">{{errorMsg}}</h2>
+        <!--<h2 v-if="errorMsg" :key="i">{{errorMsg}}</h2>-->
         <div class="row">
             <div class="idAndorder">
                 
@@ -29,35 +30,35 @@
                             </tr>
                         </td>
                         <td >
-                            <tr v-for="i in card"  :key="i">
+                            <tr v-for="(i,index) in card"  :key="index">
                               <div class="follow">
                                 {{i}}
                               </div>
                             </tr>
                         </td>
                         <td>
-                            <tr v-for="i in modle" :key="i">
+                            <tr v-for="(i,index) in modle" :key="index">
                               <div class="follow">
                                 {{i}}
                               </div>
                             </tr>
                         </td>
                         <td>
-                            <tr v-for="i in action" :key="i">
+                            <tr v-for="(i,index) in action" :key="index">
                               <div class="hidden">
                                 {{i}}
                               </div>
                             </tr>
                         </td>
                         <td>
-                            <tr v-for="i in para" :key="i">
+                            <tr v-for="(i,index)  in para" :key="index">
                               <div class="hidden">
                                 {{i}}
                               </div>
                             </tr>
                         </td>
                         <td>
-                            <tr v-for="i in description" :key="i">
+                            <tr v-for="(i,index) in description" :key="index">
                               <div class="hidden">
                                 {{i}}
                               </div>
@@ -66,10 +67,10 @@
                     </tbody>
 
                 </table>
-             
+                
             </div>
         </div>
-        
+         
        
       
 
@@ -114,18 +115,19 @@ export default {
           this.firstView=false
           this.tableView=false
             this.loading=true
-            this.users=null
             this.errorMsg=''
            this.firstView=true
             this.loading=false
-            this.ids=[]
+            this.id=[]
+            this.card=[]
+            this.modle=[]
+            this.action=[]
+            this.para=[]
+            this.description=[]
            this.$http.get('api/code').then((response) => {
            this.result=response.data.code
         //this.code = response.data.code //数据位置
-            
-            var len=this.result.items.length
-         
-           for(var i=0;i<len;i++){
+           for(var i=0;i<this.result.items.length;i++){
                   
                 if(this.result.items[i].id==searchBoard||this.result.items[i].card==searchBoard){
                     this.tableView=true

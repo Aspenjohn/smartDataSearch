@@ -94,33 +94,38 @@ export default {
 </style>
 -->
 <template>
-  <div class="par-container" id="app">
-    <div class="container">
-    <Search/>
-     <Content/>
+  <div class="app-container">
+    <div class="app-container-center">
+      <img src="//nwzimg.wezhan.cn/contents/sitefiles2022/10113119/images/8259291.png" alt="" title="" id="img_smv_tem_48_1" style="width: 147px; height:48px;">
+     <p>
+        <button><router-link to='/app'>首页</router-link></button>
+        <button><router-link to='/activiteShow'>动态数据展示</router-link></button>
+        <button><router-link to='/messageSearch'>参数查询</router-link></button>
+       
+       
+      </p>
     </div>
+    <hr>
+      <keep-alive>
+       <router-view></router-view >
+      </keep-alive>
   </div>
 </template>
 
 <script>
-import Search from './components/search'
-import Content from './components/content'
-
 export default {
-   
-    
-    
-    components:{
-      Search,
-      Content
-    }
+
 }
 </script>
-<style >
-.par-container{
-  display: flex;
-  justify-content: center;
-  align-items:center
-}
 
+<style>
+a{
+  text-decoration: none;
+}
+button{
+    background-color: aliceblue;
+    border-style: none;
+    border-radius: 14px;
+    
+}
 </style>

@@ -1,4 +1,4 @@
-# vue-playlist
+# vue-playlist(机器参数查询)
 
 > smart数据显示
 
