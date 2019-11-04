@@ -11,13 +11,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const express = require('express')
-const app = express()
+const applic = express()
 
-const appData = require('../data.json') // 加载本地json文件
+const applicData = require('../data.json') // 加载本地json文件
 const goData = require('../go.json')
-//const code=appData;//获取对应本地code
+const backData =require('../back.json')
+//const code=applicData;//获取对应本地code
 var apiRoutes=express.Router()
-app.use('/api',apiRoutes)
+applic.use('/api',apiRoutes)
 
 
 const HOST = process.env.HOST
@@ -54,19 +55,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     },
  
-  before (app) {
-      app.get('/api/code',(reg,res) => {
+  before (applic) {
+      applic.get('/api/code',(reg,res) => {
       res.json({
       
-      code:appData
+      code:applicData
     
      
       }) // 接口返回json数据，上面配置的数据code就复制给data请求后调用
       
       }),
-      app.get('/api/go',(reg,res) => {
+      applic.get('/api/go',(reg,res) => {
         res.json({
           goData
+        })
+      })
+      applic.get('/api/back',(reg,res) => {
+        res.json({
+          backData
         })
       })
 
@@ -112,7 +118,7 @@ module.exports = new Promise((resolve, reject) => {
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
+          messages: [`Your appliclication is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
         ? utils.createNotifierCallback()

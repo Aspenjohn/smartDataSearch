@@ -4,6 +4,7 @@ import App from '@/App.vue'
 //import DataMove from '@/DataMove.vue'
 import messageSearch from '../views/messageSearch'
 import activiteShow from '../views/activiteShow'
+//import activiteInfor from '../views/activiteInfor'
 Vue.use(Router)
 
 export default new Router({
@@ -20,6 +21,7 @@ export default new Router({
       path:'/activiteShow',
       name:'activiteShow',
       component:activiteShow
+  
     },
    {
       path:'/',

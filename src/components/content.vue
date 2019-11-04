@@ -229,11 +229,11 @@ export default {
         }
         .hidden::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
             border-radius: 5px;
-            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            box-shadow : inset 0 0 5px rgba(0,0,0,0.2);
             background: rgb(253, 251, 251);
         }
         .hidden::-webkit-scrollbar-track {/*滚动条里面轨道*/
-            -webkit-box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
             border-radius: 0;
             background: rgb(255, 255, 255);
         }

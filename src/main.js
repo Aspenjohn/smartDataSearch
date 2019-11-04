@@ -20,14 +20,23 @@ new Vue({
 */
 
 import Vue from 'vue'
-import ElementUI from 'element-ui'
+//import ElementUI from 'element-ui'
 import axios from 'axios'
 //import VueAxios from 'vue-axios'
-import 'element-ui/lib/theme-chalk/index.css'
+//import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
 import router from './router'
-//import dataMove from './dataMove.vue'
-Vue.use(ElementUI)
+//import VueSocketIO from 'vue-socket.io'
+//import socketio from 'socket.io-client';
+////Vue.use(VueSocketio,socketio('http://192.168.137.1:8081/'));
+//Vue.use(new VueSocketIO({
+
+  //debug: true,
+
+  //connection: 'http://localhost:8080/#/activiteShow'//'socket地址:端口号'
+
+
+//}))
 Vue.prototype.$http= axios
 //Vue.use(VueAxios)//声明使用插件,内部会给vm对象添加$http属性。这个属性有两个方法，get和post。
 new Vue({
