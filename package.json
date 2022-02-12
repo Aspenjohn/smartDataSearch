@@ -11,7 +11,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "chromedriver": "^77.0.0",
     "cors": "^2.8.5",
     "electron": "^7.0.0",
